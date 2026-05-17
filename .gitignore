@@ -35,3 +35,6 @@ beamline-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Local docker-compose overrides
+docker-compose.override.yml
+

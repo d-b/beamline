@@ -20,6 +20,16 @@ defmodule BeamlineWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/v1", BeamlineWeb do
+    pipe_through :api
+
+    post "/chat/completions", InferenceController, :chat_completions
+    post "/completions", InferenceController, :completions
+    post "/responses", InferenceController, :responses
+    post "/embeddings", InferenceController, :embeddings
+    get "/models", InferenceController, :models
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", BeamlineWeb do
   #   pipe_through :api
