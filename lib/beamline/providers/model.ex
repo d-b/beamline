@@ -7,6 +7,8 @@ defmodule Beamline.Providers.Model do
   use Beamline.Schema
 
   alias Beamline.Providers.Provider
+  alias Beamline.Providers.ProviderCredential
+  alias Beamline.Providers.ProviderCredentialModel
 
   schema "models" do
     field :name, :string
@@ -23,6 +25,15 @@ defmodule Beamline.Providers.Model do
     field :max_output_tokens, :integer
 
     belongs_to :provider, Provider
+
+    has_many :credential_models, ProviderCredentialModel
+
+    many_to_many :credentials, ProviderCredential,
+      join_through: ProviderCredentialModel,
+      join_keys: [
+        model_id: :id,
+        provider_credential_id: :id
+      ]
 
     timestamps()
   end
