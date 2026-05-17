@@ -6,6 +6,7 @@ defmodule Beamline.Providers.Provider do
 
   use Beamline.Schema
 
+  alias Beamline.Providers.Model
   alias Beamline.Providers.ProviderType
   alias Beamline.Providers.ProviderCredential
 
@@ -17,8 +18,10 @@ defmodule Beamline.Providers.Provider do
     field :base_url, :string
     field :enabled, :boolean, default: true
 
+    field :config, :map, default: %{}
+
     has_many :credentials, ProviderCredential
-    has_many :models, Beamline.Providers.Model
+    has_many :models, Model
 
     timestamps()
   end
