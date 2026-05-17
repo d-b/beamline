@@ -3,8 +3,8 @@ defmodule Beamline.Repo.Migrations.CreateProviderCredentials do
 
   def change do
     create table(:provider_credentials) do
-      add :name, :string
-      add :slug, :string
+      add :name, :string, null: false
+      add :slug, :string, null: false
       add :enabled, :boolean, default: true, null: false
 
       add :api_key_source, :string, default: "none", null: false
@@ -15,9 +15,9 @@ defmodule Beamline.Repo.Migrations.CreateProviderCredentials do
 
       add :model_scope, :string, default: "all", null: false
       add :priority, :integer, default: 100, null: false
-      add :weight, :decimal, precision: 4, scale: 1, default: "1.0", null: false
+      add :weight, :decimal, precision: 10, scale: 4, default: "1.0", null: false
 
-      add :provider_id, references(:providers, on_delete: :delete_all)
+      add :provider_id, references(:providers, on_delete: :delete_all), null: false
 
       timestamps()
     end

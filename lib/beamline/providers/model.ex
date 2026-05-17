@@ -19,7 +19,7 @@ defmodule Beamline.Providers.Model do
     field :upstream_name, :string
 
     field :enabled, :boolean, default: true
-    field :priority, :integer, default: 0
+    field :priority, :integer, default: 100
 
     field :context_window, :integer
     field :max_output_tokens, :integer

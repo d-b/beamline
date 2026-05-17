@@ -8,7 +8,7 @@ defmodule Beamline.Providers.ProviderCredentialModel do
 
   @primary_key {:id, :binary_id, autogenerate: false}
 
-  schema "provider_credentials_models" do
+  schema "provider_credential_models" do
     belongs_to :provider_credential, Beamline.Providers.ProviderCredential
     belongs_to :model, Beamline.Providers.Model
 
