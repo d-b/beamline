@@ -23,4 +23,3 @@ defmodule Beamline.Providers.Provider do
     timestamps()
   end
 end
-
